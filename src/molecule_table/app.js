@@ -13,11 +13,25 @@ async function fetchData() {
     return data;
 }
 
+const size = 200;
+
+const centeredLine = {
+    'text-align': 'center',
+    'line-height': size
+};
+
 const columns = [
     {
         header: 'Name',
         id: 'name',
-        accessor: d => d.code
+        accessor: d => d.code,
+        style: centeredLine
+    },
+    {
+        header: 'Molecular Formula',
+        id: 'mf',
+        accessor: d => d.mf.value,
+        style: centeredLine
     },
     {
         header: 'Structure',
@@ -29,7 +43,7 @@ const columns = [
         },
         render: row => {
             return (
-                <SvgRenderer oclid={row.value.oclid} width={200} height={200} options={{}}/>
+                <SvgRenderer oclid={row.value.oclid} width={size} height={size} options={{}}/>
             )
         }
     }
