@@ -4,7 +4,8 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        'build/molecule_table/bundle': './src/molecule_table/app'
+        'build/molecule_table/bundle': './src/molecule_table/app',
+        'build/molecule_table_fetch/bundle': './src/molecule_table_fetch/app'
     },
     output: {
         path: './',
