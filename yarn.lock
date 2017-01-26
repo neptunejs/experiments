@@ -386,11 +386,11 @@ babel-plugin-syntax-jsx@^6.3.13, babel-plugin-syntax-jsx@^6.8.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
 
-babel-plugin-syntax-trailing-function-commas@^6.13.0:
+babel-plugin-syntax-trailing-function-commas@^6.13.0, babel-plugin-syntax-trailing-function-commas@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-trailing-function-commas/-/babel-plugin-syntax-trailing-function-commas-6.22.0.tgz#ba0360937f8d06e40180a43fe0d5616fff532cf3"
 
-babel-plugin-transform-async-to-generator@^6.8.0:
+babel-plugin-transform-async-to-generator@^6.22.0, babel-plugin-transform-async-to-generator@^6.8.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-async-to-generator/-/babel-plugin-transform-async-to-generator-6.22.0.tgz#194b6938ec195ad36efc4c33a971acf00d8cd35e"
   dependencies:
@@ -615,6 +615,12 @@ babel-plugin-transform-regenerator@^6.6.0:
   dependencies:
     regenerator-transform "0.9.8"
 
+babel-plugin-transform-runtime@^6.22.0:
+  version "6.22.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-runtime/-/babel-plugin-transform-runtime-6.22.0.tgz#10968d760bbf6517243081eec778e10fa828551c"
+  dependencies:
+    babel-runtime "^6.22.0"
+
 babel-plugin-transform-strict-mode@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-strict-mode/-/babel-plugin-transform-strict-mode-6.22.0.tgz#e008df01340fdc87e959da65991b7e05970c8c7c"
@@ -654,6 +660,13 @@ babel-preset-env@^1.1.8:
     babel-plugin-transform-exponentiation-operator "^6.8.0"
     babel-plugin-transform-regenerator "^6.6.0"
     browserslist "^1.4.0"
+
+babel-preset-es2017@^6.22.0:
+  version "6.22.0"
+  resolved "https://registry.yarnpkg.com/babel-preset-es2017/-/babel-preset-es2017-6.22.0.tgz#de2f9da5a30c50d293fb54a0ba15d6ddc573f0f2"
+  dependencies:
+    babel-plugin-syntax-trailing-function-commas "^6.22.0"
+    babel-plugin-transform-async-to-generator "^6.22.0"
 
 babel-preset-react@^6.16.0:
   version "6.22.0"
@@ -937,6 +950,10 @@ cipher-base@^1.0.0, cipher-base@^1.0.1:
 circular-json@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.1.tgz#be8b36aefccde8b3ca7aa2d6afc07a37242c0d2d"
+
+classnames@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
 cli-cursor@^1.0.1:
   version "1.0.2"
@@ -2546,6 +2563,10 @@ open@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/open/-/open-0.0.5.tgz#42c3e18ec95466b6bf0dc42f3a2945c3f0cad8fc"
 
+openchemlib@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/openchemlib/-/openchemlib-5.0.0.tgz#a8cef78f158a2d064d45974a8acd21d9fd8607a0"
+
 optimist@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
@@ -2813,6 +2834,18 @@ react-dom@^15.4.2:
     fbjs "^0.8.1"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+
+react-ocl@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/react-ocl/-/react-ocl-0.0.3.tgz#c9aa743699c507be40e4566ebe8b1c702102e672"
+  dependencies:
+    openchemlib "^5.0.0"
+
+react-table@^4.2.7:
+  version "4.2.7"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-4.2.7.tgz#2fa39cd60b3139cbd659d615d448fe7964e433ff"
+  dependencies:
+    classnames "^2.2.5"
 
 react@^15.4.2:
   version "15.4.2"
@@ -3567,7 +3600,7 @@ webpack-sources@^0.1.4:
     source-list-map "~0.1.7"
     source-map "~0.5.3"
 
-webpack@2:
+webpack@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-2.2.0.tgz#09246336b5581c9002353f75bcadb598a648f977"
   dependencies:
