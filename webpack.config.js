@@ -1,12 +1,20 @@
 'use strict';
 
 const path = require('path');
+const fs = require('fs');
+
+const examples = fs.readdirSync(path.join(__dirname, 'src')).filter(dir => {
+    return fs.statSync(path.join(__dirname, 'src', dir)).isDirectory();
+});
+const entry = {};
+for (const example of examples) {
+    const key = `./build/${example}/bundle`;
+    const value = `./src/${example}/app`;
+    entry[key] = value;
+}
 
 module.exports = {
-    entry: {
-        'build/molecule_table/bundle': './src/molecule_table/app',
-        'build/molecule_table_fetch/bundle': './src/molecule_table_fetch/app'
-    },
+    entry,
     output: {
         path: './',
         filename: '[name].js'
