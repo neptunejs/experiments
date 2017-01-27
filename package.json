@@ -24,6 +24,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "react-mf": "^0.0.1",
     "react-ocl": "^0.0.3",
     "react-table": "^4.2.7"
   }

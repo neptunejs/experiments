@@ -2835,6 +2835,10 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
+react-mf@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/react-mf/-/react-mf-0.0.1.tgz#5ea09df32953a9c27e87f1f5d4c8aeb4926b2dda"
+
 react-ocl@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/react-ocl/-/react-ocl-0.0.3.tgz#c9aa743699c507be40e4566ebe8b1c702102e672"

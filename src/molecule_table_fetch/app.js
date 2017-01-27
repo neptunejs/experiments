@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import ReactTable from 'react-table';
 import {SvgRenderer} from 'react-ocl';
+import {MF} from 'react-mf';
 
 const size = 200;
 
@@ -23,7 +24,12 @@ const columns = [
         header: 'Molecular Formula',
         id: 'mf',
         accessor: d => d.mf,
-        style: centeredLine
+        style: centeredLine,
+        render: row => {
+            return (
+                <MF mf={row.value} />
+            )
+        }
     },
     {
         header: 'Structure',

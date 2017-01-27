@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTable from 'react-table';
 import {SvgRenderer} from 'react-ocl';
+import { MF } from 'react-mf';
 
 async function fetchData() {
     const res = await window.fetch('https://www.cheminfo.org/wikipedia/src/json/data.json');
@@ -31,7 +32,12 @@ const columns = [
         header: 'Molecular Formula',
         id: 'mf',
         accessor: d => d.mf.value,
-        style: centeredLine
+        style: centeredLine,
+        render: row => {
+            return (
+                <MF mf={row.value} />
+            )
+        }
     },
     {
         header: 'Structure',
