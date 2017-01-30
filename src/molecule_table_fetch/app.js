@@ -1,5 +1,3 @@
-'use strict';
-
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import ReactTable from 'react-table';
@@ -28,7 +26,7 @@ const columns = [
         render: row => {
             return (
                 <MF mf={row.value} />
-            )
+            );
         }
     },
     {
@@ -37,12 +35,12 @@ const columns = [
         accessor: d => {
             return {
                 oclid: d.ocl
-            }
+            };
         },
         render: row => {
             return (
-                <SvgRenderer oclid={row.value.oclid} width={size} height={size} options={{}}/>
-            )
+                <SvgRenderer oclid={row.value.oclid} width={size} height={size} options={{}} />
+            );
         }
     }
 ];
@@ -57,11 +55,10 @@ class DynTable extends Component {
         };
     }
 
-    async fetchData(state, instance) {
+    async fetchData(state) {
         this.setState({
             loading: true
         });
-        console.log(state, instance);
         const res = await window.fetch(`https://pubchem.cheminfo.org/molecules/mf?mf=C6H6&sort=-mf&skip=${state.pageSize * state.page}&limit=${state.pageSize}`);
         const text = await res.text();
         const data = JSON.parse(text);
@@ -88,5 +85,5 @@ class DynTable extends Component {
 }
 
 ReactDOM.render((
-    <DynTable/>
+    <DynTable />
 ), document.getElementsByClassName('container')[0]);
