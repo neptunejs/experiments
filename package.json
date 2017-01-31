@@ -30,6 +30,7 @@
     "react-table": "^4.2.7"
   },
   "scripts": {
-    "eslint": "eslint src"
+    "eslint": "eslint src",
+    "start": "webpack-dev-server --inline"
   }
 }
