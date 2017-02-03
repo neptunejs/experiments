@@ -18,13 +18,17 @@ async function fetchData() {
         .data.molecules.slice(0, size)
         .map(molecule => {
             var props = OCL.Molecule.fromIDCode(molecule.actID.value).getProperties();
+            console.log(props);
             return {
                 actID: molecule.actID,
                 code: molecule.code,
                 mf: molecule.mf,
                 properties: {
                     logP: props.logP,
-                    logS: props.logS
+                    logS: props.logS,
+                    hDonor: props.donorCount,
+                    hAcceptor: props.acceptorCount,
+                    polarSurface: props.polarSurfaceArea
                 }
             }
         });
@@ -76,10 +80,8 @@ const columns = [
     let data = await fetchData();
 
     function pcMap(d) {
-        return {
-            logP: d.properties.logP,
-            logS: d.properties.logS
-        };
+        const {logP, logS, hDonor, hAcceptor, polarSurface} = d.properties;
+        return {logP, logS, hDonor, hAcceptor, polarSurface};
     }
 
 
@@ -90,6 +92,18 @@ const columns = [
         },
         logS: {
             title: 'logS',
+            type: 'number'
+        },
+        hDonor: {
+            title: 'hDonor',
+            type: 'number'
+        },
+        hAcceptor: {
+            title: 'hDonor',
+            type: 'number'
+        },
+        polarSurface: {
+            title: 'hDonor',
             type: 'number'
         }
     };

@@ -11,10 +11,10 @@ class ReactTablePC extends Component {
             activeLine: []
         };
 
-        this.onLineSelected = this.onLineSelected.bind(this);
+        this.onRowEnter = this.onRowEnter.bind(this);
     }
 
-    onLineSelected (row) {
+    onRowEnter (row) {
         this.setState({
             activeLine: [row.properties]
         });
@@ -32,7 +32,13 @@ class ReactTablePC extends Component {
                     columns={columns}
                     defaultPageSize={4}
                     showPagination={true}
-                    onTrClick={this.onLineSelected}
+                    getTrProps={(state, rowInfo, column) => {
+                        return {
+                            onMouseEnter: () => {
+                                this.onRowEnter(rowInfo.row);
+                            }
+                        }
+                    }}
                 />
                 <ParallelCoordinates
                     width={1200}

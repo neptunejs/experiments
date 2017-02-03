@@ -25,6 +25,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "css-loader": "^0.26.1",
     "openchemlib-extended": "^1.14.4",
     "react-mf": "^0.0.1",
     "react-ocl": "^0.0.3",
