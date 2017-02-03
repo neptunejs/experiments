@@ -27,6 +27,10 @@ module.exports = {
                 options: {
                     presets: ['react', 'es2017']
                 }
+            },
+            {
+                test: /\.css$/,
+                use: ['css-loader']
             }
         ]
     },
