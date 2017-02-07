@@ -29,7 +29,7 @@
     "openchemlib-extended": "^1.14.4",
     "react-mf": "^0.0.1",
     "react-ocl": "^0.0.3",
-    "react-parallel-coordinates": "^0.2.6",
+    "react-parallel-coordinates": "^0.2.8",
     "react-table": "^5.0.0"
   },
   "scripts": {
