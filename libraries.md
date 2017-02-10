@@ -16,7 +16,7 @@ Infinite scrolling table.
 
 ### react-grid-layout
 Links
-* [Responsive layout library for react](https://github.com/STRML/react-grid-layout#features)
+* [Responsive layout library for react](https://github.com/STRML/react-grid-layout)
 
 Fetaures
 *  Set different layouts for given width breakpoints
