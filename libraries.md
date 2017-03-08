@@ -11,12 +11,16 @@ Infinite scrolling table.
 * http://devblog.orgsync.com/react-list/
 * https://github.com/orgsync/react-list
 
+### Layout
 
-## Layout
+#### react-grid-layout
 
-### react-grid-layout
 Links
 * [Responsive layout library for react](https://github.com/STRML/react-grid-layout)
 
-Fetaures
+Features
 *  Set different layouts for given width breakpoints
+
+### Charts
+
+#### react-sparklines
