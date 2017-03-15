@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ReactTable from 'react-table';
 import {SvgRenderer} from 'react-ocl';
 import {MF} from 'react-mf';
+import reactTableStyle from '../react-table.css';
 
 async function fetchData() {
     const res = await window.fetch('https://www.cheminfo.org/wikipedia/src/json/data.json');

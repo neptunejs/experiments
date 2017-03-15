@@ -3,8 +3,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import OCL from 'openchemlib-extended';
-import ParallelCoordinates from 'react-parallel-coordinates';
-import ReactTable from 'react-table';
 import {MF} from 'react-mf';
 import {SvgRenderer} from 'react-ocl';
 import ReactTablePC from '../../components/react-table-pc';
@@ -18,7 +16,6 @@ async function fetchData() {
         .data.molecules.slice(0, size)
         .map(molecule => {
             var props = OCL.Molecule.fromIDCode(molecule.actID.value).getProperties();
-            console.log(props);
             return {
                 actID: molecule.actID,
                 code: molecule.code,

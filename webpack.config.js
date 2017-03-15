@@ -9,8 +9,7 @@ const examples = fs.readdirSync(path.join(__dirname, 'src')).filter(dir => {
 const entry = {};
 for (const example of examples) {
     const key = `./build/${example}/bundle`;
-    const value = `./src/${example}/app`;
-    entry[key] = value;
+    entry[key] = `./src/${example}/app`;
 }
 
 module.exports = {
@@ -22,6 +21,7 @@ module.exports = {
     module: {
         loaders: [
             {
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
@@ -30,8 +30,8 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['css-loader']
-            }
+                loader: ['style-loader', 'css-loader']
+            },
         ]
     },
     devServer: {

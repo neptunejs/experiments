@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ReactTable from 'react-table';
 import {SvgRenderer} from 'react-ocl';
 import {MF} from 'react-mf';
+import reactTabelStyle from '../react-table.css';
 
 const size = 200;
 

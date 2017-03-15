@@ -21,19 +21,22 @@
     "npm-run-all": "^4.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.14.0",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "css-loader": "^0.26.1",
+    "css-loader": "^0.27.3",
     "openchemlib-extended": "^1.14.4",
     "react-mf": "^0.0.1",
     "react-ocl": "^0.0.3",
-    "react-parallel-coordinates": "^0.2.8",
+    "react-parallel-coordinates": "^0.2.9",
     "react-table": "^5.0.0"
   },
   "scripts": {
     "eslint": "eslint src",
-    "start": "webpack-dev-server --inline"
+    "start": "webpack-dev-server --inline",
+    "build": "rimraf build && webpack && rsync -avm --include='index.html' -f 'hide,! */' src/ build/"
   }
 }
