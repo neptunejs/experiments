@@ -8,8 +8,8 @@ import reactTabelStyle from '../react-table.css';
 const size = 200;
 
 const centeredLine = {
-    'text-align': 'center',
-    'line-height': size
+    texAlign: 'center',
+    lineHeight: size + 'px'
 };
 
 const columns = [

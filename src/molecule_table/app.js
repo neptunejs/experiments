@@ -17,8 +17,8 @@ async function fetchData() {
 const size = 200;
 
 const centeredLine = {
-    'text-align': 'center',
-    'line-height': size
+    textAlign: 'center',
+    lineHeight: size + 'px'
 };
 
 const columns = [

@@ -35,8 +35,8 @@ async function fetchData() {
 const molSize = 200;
 
 const centeredLine = {
-    'text-align': 'center',
-    'line-height': molSize
+    textAlign: 'center',
+    lineHeight: molSize + 'px'
 };
 
 const columns = [
