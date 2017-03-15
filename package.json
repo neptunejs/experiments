@@ -44,6 +44,8 @@
   "scripts": {
     "eslint": "eslint src",
     "start": "webpack-dev-server --inline",
-    "build": "rimraf build && webpack && rsync -avm --include='index.html' -f 'hide,! */' src/ build/"
+    "createIndex": "node scripts/createIndex.js",
+    "copyIndexFiles": "rsync -avm --include='index.html' -f 'hide,! */' src/ build/",
+    "build": "rimraf build && webpack && npm run copyIndexFiles && npm run createIndex"
   }
 }
