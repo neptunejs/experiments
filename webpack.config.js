@@ -15,11 +15,11 @@ for (const example of examples) {
 module.exports = {
     entry,
     output: {
-        path: './',
+        path: '/',
         filename: '[name].js'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
@@ -30,7 +30,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader']
             },
         ]
     },
