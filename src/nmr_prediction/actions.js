@@ -11,7 +11,6 @@ export function changeQuery(mol) {
 
 export const MAKE_REQUEST = 'MAKE_REQUEST';
 export function makeRequest(options) {
-    console.log(options);
     return {
         type: MAKE_REQUEST,
         payload: nmrPredictor['fetch' + options.type]().then(function () {
