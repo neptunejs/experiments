@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import OCL from 'openchemlib-extended';
+import OCL from 'openchemlib/core';
 import {MF} from 'react-mf';
 import {SvgRenderer} from 'react-ocl';
 import ReactTablePC from '../../components/react-table-pc';
@@ -15,7 +15,7 @@ async function fetchData() {
     const data = JSON.parse(text)
         .data.molecules.slice(0, size)
         .map(molecule => {
-            var props = OCL.Molecule.fromIDCode(molecule.actID.value).getProperties();
+            var props = new OCL.MoleculeProperties(OCL.Molecule.fromIDCode(molecule.actID.value));
             return {
                 actID: molecule.actID,
                 code: molecule.code,
@@ -67,7 +67,7 @@ const columns = [
         },
         render: row => {
             return (
-                <SvgRenderer oclid={row.value.oclid} width={molSize} height={molSize} options={{}} />
+                <SvgRenderer OCL={OCL} oclid={row.value.oclid} width={molSize} height={molSize} options={{}} />
             );
         }
     }

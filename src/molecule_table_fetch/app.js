@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import ReactTable from 'react-table';
 import {SvgRenderer} from 'react-ocl';
 import {MF} from 'react-mf';
-import reactTabelStyle from '../react-table.css';
+import OCL from 'openchemlib/minimal';
+
+import '../react-table.css';
 
 const size = 200;
 
@@ -40,7 +42,7 @@ const columns = [
         },
         render: row => {
             return (
-                <SvgRenderer oclid={row.value.oclid} width={size} height={size} options={{}} />
+                <SvgRenderer OCL={OCL} oclid={row.value.oclid} width={size} height={size} options={{}} />
             );
         }
     }
