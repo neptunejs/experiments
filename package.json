@@ -18,6 +18,7 @@
     "eslint-config-neptun-react": "^1.0.1",
     "eslint-plugin-no-only-tests": "^1.1.0",
     "eslint-plugin-react": "^6.9.0",
+    "gh-pages": "^0.12.0",
     "npm-run-all": "^4.0.0",
     "rimraf": "^2.6.1",
     "style-loader": "^0.14.0",
@@ -46,6 +47,7 @@
     "start": "webpack-dev-server --inline",
     "createIndex": "node scripts/createIndex.js",
     "copyIndexFiles": "rsync -avm --include='index.html' -f 'hide,! */' src/ build/",
-    "build": "rimraf build && webpack && npm run copyIndexFiles && npm run createIndex"
+    "build": "rimraf build && webpack && npm run copyIndexFiles && npm run createIndex",
+    "deploy": "npm run build && gh-pages -d build"
   }
 }
