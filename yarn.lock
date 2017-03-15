@@ -2688,7 +2688,7 @@ lodash.uniqueid@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/lodash.uniqueid/-/lodash.uniqueid-4.0.1.tgz#3268f26a7c88e4f4b1758d679271814e31fa5b26"
 
-lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
+lodash@^4.0.0, lodash@^4.14.0, lodash@^4.16.4, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -3660,7 +3660,7 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^15.4.2:
+react-dom@^15.3.2, react-dom@^15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
   dependencies:
@@ -3684,11 +3684,14 @@ react-ocl@^0.1.0:
   dependencies:
     lodash.uniqueid "^4.0.1"
 
-react-parallel-coordinates@^0.2.9:
-  version "0.2.9"
-  resolved "https://registry.yarnpkg.com/react-parallel-coordinates/-/react-parallel-coordinates-0.2.9.tgz#ed23952120e7bda13a0a537805dc8dcd757a0a4a"
+react-parallel-coordinates@0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/react-parallel-coordinates/-/react-parallel-coordinates-0.2.6.tgz#f54bc86f0850e66f7d6a9a5f7150246b2bc79b71"
   dependencies:
     d3 "^3.5.17"
+    lodash "^4.16.4"
+    react "^15.3.2"
+    react-dom "^15.3.2"
 
 react-redux@^5.0.3:
   version "5.0.3"
@@ -3706,7 +3709,7 @@ react-table@5.1.0:
   dependencies:
     classnames "^2.2.5"
 
-react@^15.4.2:
+react@^15.3.2, react@^15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
   dependencies:
