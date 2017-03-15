@@ -26,7 +26,7 @@ const columns = [
         id: 'mf',
         accessor: d => d.mf,
         style: centeredLine,
-        render: row => {
+        render: function(row) {
             return (
                 <MF mf={row.value} />
             );
@@ -40,7 +40,7 @@ const columns = [
                 oclid: d.ocl
             };
         },
-        render: row => {
+        render: function(row) {
             return (
                 <SvgRenderer OCL={OCL} oclid={row.value.oclid} width={size} height={size} options={{}} />
             );
@@ -59,6 +59,7 @@ class DynTable extends Component {
     }
 
     async fetchData(state) {
+        console.log(state);
         this.setState({
             loading: true
         });

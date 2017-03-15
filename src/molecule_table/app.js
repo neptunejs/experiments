@@ -33,7 +33,7 @@ const columns = [
         id: 'mf',
         accessor: d => d.mf.value,
         style: centeredLine,
-        render: row => {
+        render: function(row) {
             return (
                 <MF mf={row.value} />
             );
@@ -47,7 +47,7 @@ const columns = [
                 oclid: d.actID.value
             };
         },
-        render: row => {
+        render: function(row) {
             return (
                 <SvgRenderer OCL={OCL} oclid={row.value.oclid} width={size} height={size} options={{}} />
             );
