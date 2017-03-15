@@ -15,7 +15,7 @@ for (const example of examples) {
 module.exports = {
     entry,
     output: {
-        path: '/',
+        path: __dirname,
         filename: '[name].js'
     },
     module: {
