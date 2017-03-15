@@ -3606,9 +3606,9 @@ react-redux@^5.0.3:
     lodash-es "^4.2.0"
     loose-envify "^1.1.0"
 
-react-table@^5.0.0:
-  version "5.3.4"
-  resolved "https://registry.yarnpkg.com/react-table/-/react-table-5.3.4.tgz#1a824c76a292f6f9f182fb69d57a93a6bdeb9c06"
+react-table@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-5.1.0.tgz#7a6e8f711837bb9224dd558118686ab10853b367"
   dependencies:
     classnames "^2.2.5"
 
