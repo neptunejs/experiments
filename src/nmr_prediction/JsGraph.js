@@ -15,14 +15,19 @@ function mapStateToProps(state) {
     var spectrum;
 
     if (state.prediction) {
-        console.log(state.prediction);
         const simulation = nmrSimulation.simulate1D(nmrSimulation.SpinSystem.fromPrediction(state.prediction), {frequency: 400});
-        console.log(simulation.filter(x=>x!==0));
         spectrum = {
             data: [{
                 x: getX(0, 10, 1024),
                 y: simulation
-            }]
+            }],
+            axis: [
+                {
+                    type: 'bottom',
+                    flip: true,
+                    label: 'Chemical shift'
+                }
+            ]
         };
     }
     return {spectrum};

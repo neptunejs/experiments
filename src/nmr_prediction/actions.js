@@ -11,11 +11,20 @@ export function changeQuery(mol) {
 
 export const MAKE_REQUEST = 'MAKE_REQUEST';
 export function makeRequest(options) {
-    return {
-        type: MAKE_REQUEST,
-        payload: nmrPredictor['fetch' + options.type]().then(function () {
-            var mol = OCL.Molecule.fromIDCode(options.query, false);
-            return nmrPredictor[options.type.toLowerCase()](mol.toMolfile());
-        })
-    };
+    var mol = OCL.Molecule.fromIDCode(options.query, false);
+    if (options.type === 'Proton') {
+        return {
+            type: MAKE_REQUEST,
+            payload: nmrPredictor.spinus(mol.toMolfile())
+        };
+    } else {
+        return {
+            type: MAKE_REQUEST,
+            payload: nmrPredictor['fetch' + options.type]().then(function () {
+                var mol = OCL.Molecule.fromIDCode(options.query, false);
+                debugger;
+                return nmrPredictor[options.type.toLowerCase()](mol.toMolfile());
+            })
+        };
+    }
 }
