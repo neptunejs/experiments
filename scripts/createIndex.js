@@ -18,7 +18,7 @@ fs.readdir(dir, function (err, files) {
                 <title>Index</title>
             </head>
             <body>
-            ${files.map(file => `<a href="${file}">${file}</a><br/>`).join('\n')}
+            ${files.map(file => `<h2><a href="${file}">${file}</a></h2><br/>`).join('\n')}
             <script src="./bundle.js"></script>
             </body>
             </html>
