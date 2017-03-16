@@ -880,7 +880,7 @@ const columns = [{
     id: 'mf',
     accessor: d => d.mf,
     style: centeredLine,
-    render: row => {
+    render: function (row) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_react_mf__["a" /* MF */], { mf: row.value });
     }
 }, {
@@ -891,7 +891,7 @@ const columns = [{
             oclid: d.ocl
         };
     },
-    render: row => {
+    render: function (row) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_ocl__["a" /* SvgRenderer */], { OCL: __WEBPACK_IMPORTED_MODULE_5_openchemlib_minimal___default.a, oclid: row.value.oclid, width: size, height: size, options: {} });
     }
 }];
@@ -910,6 +910,7 @@ class DynTable extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
         var _this = this;
 
         return _asyncToGenerator(function* () {
+            console.log(state);
             _this.setState({
                 loading: true
             });

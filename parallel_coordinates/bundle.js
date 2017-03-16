@@ -906,7 +906,7 @@ const columns = [{
     id: 'mf',
     accessor: d => d.mf.value,
     style: centeredLine,
-    render: row => {
+    render: function (row) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_mf__["a" /* MF */], { mf: row.value });
     }
 }, {
@@ -917,7 +917,7 @@ const columns = [{
             oclid: d.actID.value
         };
     },
-    render: row => {
+    render: function (row) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_react_ocl__["a" /* SvgRenderer */], { OCL: __WEBPACK_IMPORTED_MODULE_2_openchemlib_core___default.a, oclid: row.value.oclid, width: molSize, height: molSize, options: {} });
     }
 }];
