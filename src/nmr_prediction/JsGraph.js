@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Schema} from 'react-jsgraph';
 import nmrSimulation from 'nmr-simulation';
+import {createSelector} from 'reselect';
 
 function JsGraph(props) {
     if (!props.spectrum) {
@@ -11,26 +12,35 @@ function JsGraph(props) {
     }
 }
 
-function mapStateToProps(state) {
-    var spectrum;
-
-    if (state.prediction) {
-        const simulation = nmrSimulation.simulate1D(nmrSimulation.SpinSystem.fromPrediction(state.prediction), {frequency: 400});
-        spectrum = {
-            data: [{
-                x: getX(0, 10, 1024),
-                y: simulation
-            }],
-            axis: [
-                {
-                    type: 'bottom',
-                    flip: true,
-                    label: 'Chemical shift'
-                }
-            ]
-        };
+const predictionSelector = state => state.prediction;
+const spectrumSelector = createSelector(
+    predictionSelector,
+    (prediction) => {
+        var spectrum = null;
+        if (prediction) {
+            const simulation = nmrSimulation.simulate1D(nmrSimulation.SpinSystem.fromPrediction(prediction), {frequency: 400});
+            spectrum = {
+                data: [{
+                    x: getX(0, 10, 1024),
+                    y: simulation
+                }],
+                axis: [
+                    {
+                        type: 'bottom',
+                        flip: true,
+                        label: 'Chemical shift'
+                    }
+                ]
+            };
+        }
+        return spectrum;
     }
-    return {spectrum};
+);
+
+function mapStateToProps(state) {
+    return {
+        spectrum: spectrumSelector(state)
+    };
 }
 
 export default connect(mapStateToProps)(JsGraph);
