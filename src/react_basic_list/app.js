@@ -28,9 +28,9 @@ class BasicExample extends Component {
             <div>
                 <label>Enter a SMILES:</label>
                 <input onChange={this.handleChange.bind(this)} value={this.state.text} onKeyPress={this.handleKeypress.bind(this)} />
-                <p>
+                <div>
                     {error ? error : renderMolecule(mol, 0)}
-                </p>
+                </div>
                 <br /><br /><br /><br /><br />
                 <div>
                     {renderList(this.state.list)}
@@ -41,8 +41,7 @@ class BasicExample extends Component {
 
     handleKeypress(e) {
         if (e.key === 'Enter') {
-            console.log('enter');
-            var mol = getMol(this.state.text);
+            const mol = getMol(this.state.text);
             if (mol) {
                 const newList = this.state.list.slice();
                 newList.push(mol);
