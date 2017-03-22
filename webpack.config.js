@@ -25,7 +25,11 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
-                    presets: ['react', 'es2017']
+                    presets: ['react', ['env', {
+                        targets: {
+                            browsers: ['last 2 chrome versions']
+                        }
+                    }]]
                 }
             },
             {

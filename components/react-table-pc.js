@@ -37,6 +37,9 @@ class ReactTablePC extends Component {
                         return {
                             onMouseEnter: () => {
                                 this.onRowEnter(rowInfo.row);
+                            },
+                            onMouseLeave: () => {
+                                this.setState({activeLine: []})
                             }
                         }
                     }}
@@ -46,11 +49,10 @@ class ReactTablePC extends Component {
                     height={300}
                     dimensions={this.props.dimensions}
                     data={parData}
-                    dataHighlighted={this.state.activeLine}
+                    highlights={this.state.activeLine}
                     colour={color}
-                    onBrush_extents={noop}
-                    onBrushEnd_extents={noop}
-                    onBrushEnd_data={noop}
+                    onBrush={noop}
+                    onBrushEnd={noop}
                     onLineHover={noop}
                 />
             </div>
@@ -60,6 +62,6 @@ class ReactTablePC extends Component {
 
 const color = () => 'red';
 
-function noop () {};
+function noop () {}
 
 export default ReactTablePC;
