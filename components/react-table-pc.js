@@ -2,9 +2,8 @@
 
 import React, {Component} from 'react';
 import ReactTable from 'react-table';
-import ParallelCoordinates from 'react-parallel-coordinates';
-import reactTableStyle from '../src/react-table.css';
-import PCStyle from '../node_modules/react-parallel-coordinates/parallel-coordinates/d3.parcoords.css';
+import {ParallelCoordinates} from 'react-parcoords';
+import '../src/react-table.css';
 
 class ReactTablePC extends Component {
     constructor(props) {
