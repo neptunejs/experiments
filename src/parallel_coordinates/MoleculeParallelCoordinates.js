@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {ParallelCoordinates} from 'react-parcoords';
 import {setFilteredMolecules} from './actions';
+import {parallelSelector} from './selection';
 
 const dimensions = {
     logP: {
@@ -37,10 +38,7 @@ class MoleculeParallelCoordinates extends Component {
 }
 
 function mapStateToProps(state) {
-    return {
-        data: state.molecules,
-        // highlights: state.table.activeLine === null ? [] : [state.table.activeLine]
-    }
+    return parallelSelector(state);
 }
 
 export default connect(mapStateToProps, {setFilteredMolecules})(MoleculeParallelCoordinates);
