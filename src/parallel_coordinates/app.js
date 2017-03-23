@@ -1,118 +1,38 @@
-'use strict';
-
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import OCL from 'openchemlib/core';
-import {MF} from 'react-mf';
-import {SvgRenderer} from 'react-ocl';
-import ReactTablePC from '../../components/react-table-pc';
+import {Provider} from 'react-redux';
+import MoleculeTable from './MoleculeTable';
+import MoleculeParallelCoordinates from './MoleculeParallelCoordinates';
 
-const size = 100;
+import {createStore, applyMiddleware} from 'redux';
+import promiseMiddleware from 'redux-promise-middleware';
+import thunkMiddleware from 'redux-thunk';
+import reducers from './reducers';
+const createStoreWithMiddleware = applyMiddleware(
+    thunkMiddleware,
+    promiseMiddleware()
+)(createStore);
 
-async function fetchData() {
-    const res = await window.fetch('https://www.cheminfo.org/wikipedia/src/json/data.json');
-    const text = await res.text();
-    const data = JSON.parse(text)
-        .data.molecules.slice(0, size)
-        .map(molecule => {
-            var props = new OCL.MoleculeProperties(OCL.Molecule.fromIDCode(molecule.actID.value));
-            return {
-                actID: molecule.actID,
-                code: molecule.code,
-                mf: molecule.mf,
-                properties: {
-                    logP: props.logP,
-                    logS: props.logS,
-                    hDonor: props.donorCount,
-                    hAcceptor: props.acceptorCount,
-                    polarSurface: props.polarSurfaceArea
-                }
-            }
-        });
-    return data;
+const store = createStoreWithMiddleware(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+import {fetchMolecules} from './actions';
+
+class App extends Component {
+    componentDidMount() {
+        store.dispatch(fetchMolecules())
+    }
+    render() {
+        return (
+            <div>
+                <MoleculeTable/>
+                <MoleculeParallelCoordinates/>
+            </div>
+        );
+    }
 }
 
-const molSize = 200;
-
-const centeredLine = {
-    textAlign: 'center',
-    lineHeight: molSize + 'px'
-};
-
-const columns = [
-    {
-        header: 'Name',
-        id: 'name',
-        accessor: d => d.code,
-        style: centeredLine
-    },
-    {
-        header: 'Molecular Formula',
-        id: 'mf',
-        accessor: d => d.mf.value,
-        style: centeredLine,
-        render: function(row) {
-            return (
-                <MF mf={row.value} />
-            );
-        }
-    },
-    {
-        header: 'Structure',
-        id: 'structure',
-        accessor: d => {
-            return {
-                oclid: d.actID.value
-            };
-        },
-        render: function(row) {
-            return (
-                <SvgRenderer OCL={OCL} oclid={row.value.oclid} width={molSize} height={molSize} options={{}} />
-            );
-        }
-    }
-];
-
-(async function () {
-    let data = await fetchData();
-
-    function pcMap(d) {
-        const {logP, logS, hDonor, hAcceptor, polarSurface} = d.properties;
-        return {logP, logS, hDonor, hAcceptor, polarSurface};
-    }
-
-
-    let dimensions = {
-        logP: {
-            title: 'logP',
-            type: 'number'
-        },
-        logS: {
-            title: 'logS',
-            type: 'number'
-        },
-        hDonor: {
-            title: 'hDonor',
-            type: 'number'
-        },
-        hAcceptor: {
-            title: 'hDonor',
-            type: 'number'
-        },
-        polarSurface: {
-            title: 'hDonor',
-            type: 'number'
-        }
-    };
-    ReactDOM.render((
-        <ReactTablePC
-            data={data}
-            PCMap={pcMap}
-            dimensions={dimensions}
-            columns={columns}
-        />
-    ), document.getElementsByClassName('container')[0]);
-})();
-
-
-
+ReactDOM.render((
+    <Provider store={store}>
+        <App />
+    </Provider>
+), document.getElementById('app'));

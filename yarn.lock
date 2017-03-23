@@ -3694,9 +3694,9 @@ react-ocl@^0.1.0:
   dependencies:
     lodash.uniqueid "^4.0.1"
 
-react-parcoords@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/react-parcoords/-/react-parcoords-0.0.2.tgz#7b61aa4f38216db40c53ba1fcb61f9719f656535"
+react-parcoords@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-parcoords/-/react-parcoords-0.0.4.tgz#a15c371e24d6afc7066001cf81e995c4d8349ec2"
   dependencies:
     d3 "^3.0.0"
     lodash "^4.17.4"
